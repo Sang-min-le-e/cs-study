@@ -5,6 +5,7 @@ CS 과목별 **직접 풀어 보는 문제집** 모음입니다. 개념 정리�
 | 과목 | 내용 | 열기 |
 |---|---|---|
 | [데이터베이스](database-systems/) | 관계대수 · SQL · DDL · ERD · 개념 확인 (단계별, 자동 채점) | `database-systems/index.html` |
+| [리눅스](linux/) | 리눅스 입문 1–22강 노트 · 셀프 체크 · 명령어 치트시트 | `linux/index.html` |
 
 ## 규칙
 - 과목마다 폴더 하나, 안에 `index.html`(파일 하나로 동작)과 `README.md`를 둡니다.
