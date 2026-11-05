@@ -6,5 +6,6 @@ CS 과목별 **학습 자료** 모음입니다. 과목에 따라 직접 풀어 �
 |---|---|---|---|
 | [데이터베이스](database-systems/) | 문제집 | 관계대수 · SQL · DDL · ERD · 개념 확인 (단계별, 자동 채점) | [웹에서 열기](https://sang-min-le-e.github.io/cs-study/database-systems/) |
 | [리눅스](linux/) | 노트 | 리눅스 입문 1–22강 정리 · 명령어 치트시트 | [웹에서 열기](https://sang-min-le-e.github.io/cs-study/linux/) |
+| [리눅스 공부 가이드](linux/study-guide.html) | 노트 | 리눅스 입문 1–34강 · 암기 시트 · 시각화 · 전체 지도 | [웹에서 열기](https://sang-min-le-e.github.io/cs-study/linux/study-guide.html) |
 
-풀이·읽음 기록은 각자의 브라우저에만 저장됩니다. 저작권 및 사용 안내는 [NOTICE.md](NOTICE.md)에 있습니다.
+풀이·읽음·체크 기록은 각자의 브라우저에만 저장됩니다. 저작권 및 사용 안내는 [NOTICE.md](NOTICE.md)에 있습니다.
