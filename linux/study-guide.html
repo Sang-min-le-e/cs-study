@@ -13,24 +13,11 @@
   --accent:#2560ff; --accent-hover:#0049d9; --accent-dark:#003db5; --on-accent:#ffffff;
   --accent-soft:#eaf3fd; --tint:#c0e0fa; --on-soft:#003db5;
   --code:#e7eaef; --star:#3f7a14; --ok:#3f7a14; --green:#68b631;
-  --rack:#1b2029; --rack-2:#566581; --top:#2c333f; --viewer:#e7eaef; --on-rack:#e7eaef; --on-rack-muted:#a9b4c6;
+  --rack:#c8cfda; --rack-2:#c8cfda; --top:#ffffff; --viewer:#e7eaef; --on-rack:#2c333f; --on-rack-muted:#566581;
   --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:Inter,"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
   --ease:ease;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#12161d; --surface:#1b2029; --ink:#e7eaef; --muted:#a9b4c6; --line:#343c4a; --line-strong:#566581;
-    --accent:#6f97ff; --accent-hover:#9db8ff; --accent-dark:#b7cbff; --on-accent:#12161d;
-    --accent-soft:#1c2a4d; --tint:#243763; --on-soft:#b7cbff;
-    --code:#252c38; --star:#68b631; --ok:#68b631; --green:#68b631; --rack:#0b0e13; --rack-2:#343c4a; --top:#0b0e13; --viewer:#0b0e13;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#12161d; --surface:#1b2029; --ink:#e7eaef; --muted:#a9b4c6; --line:#343c4a; --line-strong:#566581;
-  --accent:#6f97ff; --accent-hover:#9db8ff; --accent-dark:#b7cbff; --on-accent:#12161d;
-  --accent-soft:#1c2a4d; --tint:#243763; --on-soft:#b7cbff;
-  --code:#252c38; --star:#68b631; --ok:#68b631; --green:#68b631; --rack:#0b0e13; --rack-2:#343c4a; --top:#0b0e13; --viewer:#0b0e13;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
@@ -183,8 +170,6 @@ li.sub{margin-left:18px;list-style:circle}
 .vizbox:not([open]) .go-o,.vizbox[open] .go-c{display:none}
 .vizbox .vizhost{display:block;padding:10px 12px 14px;background:var(--bg);border-top:1.5px solid var(--accent)}
 .vizhost{--bad:#b3261e;--info:#003db5}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .vizhost{--bad:#f2958e;--info:#9db8ff}}
-:root[data-theme="dark"] .vizhost{--bad:#f2958e;--info:#9db8ff}
 
 /* ---- Operator Rack: components (override the base rules above) ---- */
 strong,b{font-weight:700}
@@ -194,7 +179,7 @@ h3{font-weight:600}
 a{color:var(--accent);transition:color .2s var(--ease)}
 a:hover{color:var(--accent-hover)}
 .top{background:var(--top);border-bottom:1px solid var(--rack);color:var(--on-rack)}
-.brand{font:700 12px/1 var(--mono);letter-spacing:.06em;color:#fff;display:inline-flex;align-items:center;gap:8px}
+.brand{font:700 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
 .brand::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 2.2s var(--ease) infinite}
 .tab{border-color:var(--rack-2);color:var(--on-rack);border-radius:4px;font-weight:600}
 .tab small{color:var(--on-rack-muted)}
@@ -224,7 +209,7 @@ blockquote,.key2{border:1px solid var(--line-strong);background:var(--surface);b
 .mq{border:1px solid var(--line-strong);background:var(--surface);border-radius:4px}
 .mh,.sideidx .ihead{font:700 12px/1.4 var(--mono);letter-spacing:.06em;color:var(--on-soft)}
 code{border-radius:2px;font-family:var(--mono)}
-pre{background:#1b2029;color:#e7eaef;border-radius:4px;padding:12px 16px}
+pre{background:var(--code);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:12px 16px}
 pre code{background:none;color:inherit}
 th{background:var(--code);font-weight:600}
 .sideidx a.on{color:var(--on-soft);background:var(--accent-soft);border-left-color:var(--accent)}
@@ -250,6 +235,92 @@ th{background:var(--code);font-weight:600}
 </style>
 <style>#togglePdf,.splitter,.viewer{display:none!important}
 @media (max-width:767px){.tabs{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;scrollbar-width:thin}.tab{flex:none;white-space:nowrap}}</style>
+<style id="clean-light">
+/* Clean light: 밝은 바탕, 얇은 선, 둥근 카드, 라벨은 본문 글꼴 */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#2c333f; --muted:#5f6b7f; --line:#e3e7ed; --line-strong:#d3d9e2;
+  --accent:#2f62f0; --accent-hover:#1f4fd6; --accent-dark:#1d43b8; --on-accent:#ffffff;
+  --accent-soft:#eef3ff; --tint:#dfe8ff; --on-soft:#1d43b8;
+  --code:#f1f3f6; --star:#f2a516; --ok:#1f9d55; --green:#22b45a;
+  --top:#ffffff; --rack:#e3e7ed; --rack-2:#e3e7ed; --on-rack:#2c333f; --on-rack-muted:#7a8597;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 1px 3px rgba(16,24,40,.06);
+}
+.top{background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line);padding:10px 20px;gap:14px}
+.brand{font:700 14px/1 var(--sans);letter-spacing:0;color:var(--ink)}
+.brand::before{animation:none;background:var(--accent)}
+.tabs{gap:4px}
+.tab{border:0;background:transparent;color:var(--muted);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px}
+.tab small{color:var(--on-rack-muted);font-size:12px;font-weight:500}
+.tab:hover{background:var(--code);color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(47,98,240,.25)}
+.tab[aria-selected="true"] small{color:rgba(255,255,255,.85)}
+.content{padding:28px 32px 96px}
+.howto{background:transparent;border:0;padding:0;margin:0 0 18px;font-size:13px;color:var(--muted)}
+.howto b{color:var(--muted);font-weight:600}
+.chead{margin-bottom:14px}
+.eyebrow{font:600 13px/1.4 var(--sans);letter-spacing:0;color:var(--accent)}
+h1{font-size:28px;font-weight:700;letter-spacing:-.02em}
+.prog{font:600 13px/1.4 var(--sans);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.prog.done{color:var(--ok);border-color:#bfe8cf;background:#effaf3}
+.toc{gap:6px;margin:0 0 22px}
+.toc a{font:500 13px/1.5 var(--sans);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.toc a:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.intro{font-size:14px;color:var(--muted);margin:0 0 14px}
+.sec{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin:0 0 18px;box-shadow:var(--shadow)}
+h2{font-size:21px;font-weight:700;letter-spacing:-.01em;border-bottom:0;padding-bottom:0;margin:0 0 12px}
+h3{font-size:16px;font-weight:700;margin:22px 0 8px}
+.star{color:var(--star)}
+.tags{gap:6px;margin:-4px 0 14px}
+.tags span{font:600 12px/1.6 var(--sans);letter-spacing:0;background:var(--accent-soft);color:var(--on-soft);border-radius:999px;padding:1px 10px}
+blockquote,.key2{border:0;border-left:3px solid var(--accent);background:#f7f9ff;border-radius:0 12px 12px 0;padding:12px 16px;margin:12px 0}
+.key2 b:first-child,.mq span{font:700 12px/1.4 var(--sans);letter-spacing:0;color:var(--accent)}
+.mq{border:0;background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:8px 0 14px}
+.mh{font:700 13px/1.4 var(--sans);letter-spacing:0;color:var(--ink);margin:20px 0 8px}
+code{background:var(--code);color:#33415a;border-radius:6px;padding:1px 6px;font-size:13px}
+pre{background:#f7f8fa;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.65}
+pre code{background:none;padding:0;color:inherit}
+.tw{border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow-x:auto}
+.tw table{font-size:14px}
+th,td{border:0;border-bottom:1px solid var(--line);padding:10px 14px}
+th{background:#f7f8fa;color:var(--muted);font-size:13px;font-weight:600}
+tr:last-child td{border-bottom:0}
+td code{white-space:nowrap}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.check{padding:0;margin:4px 0}
+.check li{margin:0;border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:9px 4px;cursor:pointer}
+.check input{transform:none;width:17px;height:17px;margin:3px 0 0;flex:none}
+.vs{background:#fafbfc;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.vs b{color:var(--ink);font-size:14.5px;margin-bottom:2px}
+.vs span{color:var(--muted);font-size:13.5px}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.node.nx::before{color:var(--line-strong)}
+.mrow .lab{color:var(--muted);border-right-color:var(--line)}
+.wfs{background:var(--surface);border:1px solid var(--line);font-size:13.5px}
+.wfs i{background:var(--accent)}
+.vizbox{border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);margin:14px 0 18px}
+.vizbox>summary{padding:14px 16px;background:linear-gradient(180deg,#f8faff,#f3f6ff)}
+.vizbox>summary .vi{font-size:22px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:12px;flex:none}
+.vizbox>summary b{font-size:15px}
+.vizbox>summary .go{border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--accent);font-weight:600;font-size:13px;padding:5px 12px}
+.vizbox .vizhost{background:var(--surface);border-top:1px solid var(--line);padding:16px}
+.sideidx{background:transparent;border-right:1px solid var(--line);padding:20px 10px 24px}
+.sideidx .ihead{font:700 12px/1.4 var(--sans);letter-spacing:0;color:var(--muted);margin:0 0 10px 12px}
+.sideidx a{border-left:0;border-radius:8px;padding:6px 12px;margin:1px 0}
+.sideidx a:hover{background:var(--code)}
+.sideidx a.on{background:var(--accent-soft);color:var(--on-soft);font-weight:600}
+.idxbtn{border-radius:999px;box-shadow:0 6px 18px rgba(47,98,240,.3)}
+@media (min-width:768px){.tab{padding:5px 10px}.tab small{display:none}.tab[aria-selected="true"] small{display:inline}}
+@media (max-width:767px){
+  .content{padding:18px 14px 72px}
+  .sec{padding:18px 16px;border-radius:14px}
+  h1{font-size:24px}
+  h2{font-size:19px}
+  .top{padding:8px 12px}
+}
+</style>
 </head>
 <body>
 <div class="top">
@@ -1808,74 +1879,85 @@ ls --help</code></pre>
 </article><!--/SG:PANE:l24-->
 <!--SG:PANE:l25--><article class="pane" id="l25" hidden>
 <header class="chead"><div><p class="eyebrow">25강</p><h1>파일시스템 관리</h1></div><div class="actions"><span class="prog" data-ch="l25"></span></div></header>
-<nav class="toc"><a href="#l25-s1">1. 파일 시스템의 개념과 주요 종류 ★</a><a href="#l25-s2">2. 디스크 및 디렉터리 용량 확인 명령어 (df, du) ★</a><a href="#l25-s3">3. 블록 장치 확인 명령어 (lsblk) ★</a><a href="#l25-s4">4. 새 하드디스크 추가 및 활용 3단계 (fdisk, mkfs, mount) ★</a><a href="#l25-s5">한눈에 보는 핵심 ★</a></nav>
-<div class="intro"><p>직접 전달받은 노트로 작성했다. 💡는 노트에 없는 해설이다. 8강이 파일 시스템의 구조를 다뤘다면, 이 강의는 디스크를 확인하고 새로 붙이는 관리 방법을 다룬다.</p></div>
+<nav class="toc"><a href="#l25-s1">0. 이 강의가 답하는 질문 ★</a><a href="#l25-s2">1. 큰 그림: 디스크가 폴더가 되기까지 ★</a><a href="#l25-s3">2. 어떤 디스크가 있나: lsblk ★</a><a href="#l25-s4">3. 얼마나 찼나: df와 du ★</a><a href="#l25-s5">4. 새 디스크 붙이기: fdisk → mkfs → mount ★</a><a href="#l25-s6">5. 파일 시스템 종류 ★</a><a href="#l25-s7">한눈에 보는 핵심 ★</a></nav>
+<div class="intro"><p>노트 내용을 그림과 직접 눌러 보는 자료로 옮겼다. 자료 속 장치 이름, 크기, UUID는 예시 값이다. 💡는 노트에 없는 해설이다.</p></div>
 <details class="vizbox" data-viz="meml25"><summary><span class="vi">🧠</span><span><b>25강 암기 시트 열기</b><small>25강 내용을 문장 속 빈칸과 연결하기로 외우기</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="meml25"></div></details>
 <section class="sec" id="l25-s1">
-<h2>1. 파일 시스템의 개념과 주요 종류 <span class="star">★</span></h2>
-<div class="tags"><span>EXT4</span><span>XFS</span><span>TMPFS</span></div>
-<blockquote><strong>파일 시스템(File System)</strong>: 데이터를 저장하고 접근하는 구조적 방식. 파일 저장 및 검색, 디렉터리 구조 유지, 접근 권한 및 메타데이터 관리를 수행한다.</blockquote>
-<div class="tw"><table><thead><tr><th>종류</th><th>특징</th></tr></thead><tbody>
-<tr><td><strong>EXT4</strong></td><td>대부분의 리눅스 배포판에서 기본으로 채택. 빠른 속도, 높은 안정성, 대용량 파일 지원</td></tr>
-<tr><td><strong>XFS</strong></td><td>센트OS(CentOS), 로키 리눅스(Rocky Linux) 등의 기본. 대용량 데이터 처리가 빠르고 확장성이 우수한 고성능 저널링 파일 시스템</td></tr>
-<tr><td><strong>FAT32 / NTFS</strong></td><td>윈도우 운영체제에서 주로 사용</td></tr>
-<tr><td><strong>TMPFS</strong></td><td>메인 메모리(RAM)를 활용하는 임시 파일 시스템. 읽기·쓰기가 매우 빠르지만 전원이 차단되면 데이터가 지워지는 휘발성</td></tr>
+<h2>0. 이 강의가 답하는 질문 <span class="star">★</span></h2>
+<div class="mq"><span>상황</span>가상 머신에 하드디스크를 하나 더 달았다. <b>리눅스에서는 어디에 나타나고, 어떻게 써야 하나?</b></div>
+<div class="vsgrid">
+ <div class="vs"><b>윈도우</b><span>디스크마다 드라이브 문자가 생긴다.<br><code>C:</code> 로컬 디스크 · <code>D:</code> 새 디스크 · <code>E:</code> USB</span></div>
+ <div class="vs"><b>리눅스</b><span>드라이브 문자가 없다. 모든 것이 <code>/</code> 하나의 트리(8강)이고, 새 디스크는 트리 안의 폴더에 <strong>연결(마운트)</strong>해야 쓸 수 있다.<br><code>/</code> ─ <code>home</code> · <code>etc</code> · <code>mnt</code> ← 새 디스크</span></div>
+</div>
+<div class="tw"><table><thead><tr><th>이 강의에서 할 일</th><th>명령</th></tr></thead><tbody>
+<tr><td><strong>확인하기</strong>: 디스크가 몇 개고, 얼마나 찼나</td><td><code>lsblk</code>, <code>df</code>, <code>du</code></td></tr>
+<tr><td><strong>새로 붙이기</strong>: 나누고, 포맷하고, 폴더에 연결</td><td><code>fdisk</code>, <code>mkfs</code>, <code>mount</code></td></tr>
 </tbody></table></div>
 </section>
 <section class="sec" id="l25-s2">
-<h2>2. 디스크 및 디렉터리 용량 확인 명령어 (df, du) <span class="star">★</span></h2>
-<div class="tags"><span>df</span><span>du</span></div>
-<div class="tw"><table><thead><tr><th>명령</th><th>동작</th></tr></thead><tbody>
-<tr><td><code>df</code> (Disk Free)</td><td>디스크의 전체 용량, 사용량, 남은 공간 등을 파일 시스템 단위로 출력</td></tr>
-<tr><td><code>df -h</code></td><td>사람이 읽기 쉬운 단위로 표시 (KiB, MiB, GiB 등 <strong>2의 승수</strong> 기준)</td></tr>
-<tr><td><code>df -H</code></td><td><strong>10의 승수</strong>(KB, MB, GB) 단위로 표시</td></tr>
-<tr><td><code>du</code> (Disk Usage)</td><td>지정한 디렉터리나 파일이 실제 차지하는 디스크 공간의 크기 출력</td></tr>
-<tr><td><code>du -sh [디렉터리경로]</code></td><td>총사용량을 요약(<code>-s</code>)하고 읽기 쉬운 단위(<code>-h</code>)로 출력</td></tr>
+<h2>1. 큰 그림: 디스크가 폴더가 되기까지 <span class="star">★</span></h2>
+<div class="tags"><span>파티션</span><span>파일 시스템</span><span>마운트</span></div>
+<p>명령을 하나씩 눌러 그림이 어떻게 바뀌는지 보자. 순서를 바꿔 누르면 왜 실패하는지도 나온다.</p>
+<details class="vizbox" data-viz="disklab" open><summary><span class="vi">💽</span><span><b>새 디스크 4단계</b><small>디스크 → 파티션 → 파일 시스템 → 마운트</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="disklab"></div></details>
+<div class="tw"><table><thead><tr><th>용어</th><th>그림에서</th><th>뜻</th></tr></thead><tbody>
+<tr><td><strong>파티션</strong></td><td>디스크 안의 파란 구역 <code>sdb1</code></td><td>디스크 하나를 나눈 구역</td></tr>
+<tr><td><strong>파일 시스템</strong></td><td>구역 안의 격자 <code>ext4</code></td><td>데이터를 저장하고 접근하는 구조적 방식. 파일 저장·검색, 디렉터리 구조 유지, 접근 권한과 메타데이터를 관리한다. 이것을 만드는 작업이 포맷</td></tr>
+<tr><td><strong>마운트</strong></td><td>초록 점선</td><td>포맷한 파티션을 리눅스 디렉터리에 연결해 사용할 수 있게 만드는 것</td></tr>
 </tbody></table></div>
-<pre><code>du -sh /etc
-du -sh /etc 2&gt; /dev/null    # 권한 부족 에러를 버리고 용량 결과만 표시</code></pre>
-<p>💡 해설: 소문자 <code>-h</code>는 1024 단위, 대문자 <code>-H</code>는 1000 단위다. 화면에는 둘 다 <code>G</code>처럼 짧게 나오므로, 같은 디스크도 <code>-H</code>의 숫자가 더 크게 보인다.</p>
 </section>
 <section class="sec" id="l25-s3">
-<h2>3. 블록 장치 확인 명령어 (lsblk) <span class="star">★</span></h2>
+<h2>2. 어떤 디스크가 있나: lsblk <span class="star">★</span></h2>
 <div class="tags"><span>lsblk</span><span>sda</span><span>sda1</span></div>
-<p>시스템에 연결된 하드디스크, 파티션, CD-ROM, USB 등의 블록 장치 정보를 트리 형태로 출력한다.</p>
-<h3>장치명 식별 규칙</h3>
-<div class="tw"><table><thead><tr><th>구분</th><th>이름</th><th>규칙</th></tr></thead><tbody>
-<tr><td><strong>물리 디스크</strong></td><td><code>sda</code>, <code>sdb</code></td><td>첫 번째, 두 번째 하드디스크처럼 알파벳순으로 부여</td></tr>
-<tr><td><strong>논리 파티션</strong></td><td><code>sda1</code>, <code>sda2</code></td><td>디스크 이름 뒤에 붙는 숫자로 파티션 구분</td></tr>
+<p><code>lsblk</code>는 하드디스크, 파티션, CD-ROM, USB 같은 블록 장치(8강의 파일 유형 <code>b</code>)를 트리 형태로 출력한다. 옵션을 바꾸고, 출력의 줄을 눌러 보자.</p>
+<details class="vizbox" data-viz="lsblklab" open><summary><span class="vi">🗂</span><span><b>lsblk 출력 읽기</b><small>줄을 누르면 그 장치가 무엇인지 설명이 나온다</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="lsblklab"></div></details>
+<div class="tw"><table><thead><tr><th>규칙</th><th>예</th></tr></thead><tbody>
+<tr><td>물리 디스크는 알파벳순</td><td><code>sda</code> 첫 번째, <code>sdb</code> 두 번째 하드디스크</td></tr>
+<tr><td>파티션은 디스크 이름 뒤 숫자 (노트 표현: 논리 파티션)</td><td><code>sda1</code>, <code>sda2</code></td></tr>
+<tr><td><code>lsblk -f</code></td><td>파일 시스템 유형(EXT4, XFS 등)과 UUID 식별자도 출력</td></tr>
+<tr><td><code>lsblk -p</code></td><td>전체 경로(<code>/dev/sda1</code>)로 출력</td></tr>
 </tbody></table></div>
-<h3>주요 옵션</h3>
-<div class="tw"><table><thead><tr><th>옵션</th><th>동작</th></tr></thead><tbody>
-<tr><td><code>lsblk -f</code></td><td>파티션별 파일 시스템 유형(EXT4, XFS 등)과 UUID 식별자를 함께 출력</td></tr>
-<tr><td><code>lsblk -p</code></td><td>장치의 전체 경로(예: <code>/dev/sda1</code>)를 포함해 출력</td></tr>
-</tbody></table></div>
-<p>💡 해설: 블록 장치는 8강의 파일 유형 <code>b</code>이고, 그래서 경로가 <code>/dev</code> 아래에 있다.</p>
 </section>
 <section class="sec" id="l25-s4">
-<h2>4. 새 하드디스크 추가 및 활용 3단계 (fdisk, mkfs, mount) <span class="star">★</span></h2>
-<div class="tags"><span>fdisk</span><span>mkfs</span><span>mount</span></div>
-<p>새 하드디스크를 시스템에 추가해 사용하려면 다음 3단계를 거친다.</p>
-<h3>1단계: 디스크 파티션 생성 (fdisk)</h3>
-<pre><code>sudo fdisk /dev/sdb    # 지정한 디스크에 논리적 파티션을 생성, 삭제, 수정</code></pre>
-<div class="tw"><table><thead><tr><th>내부 명령어</th><th>동작</th></tr></thead><tbody>
-<tr><td><code>n</code></td><td>새 파티션 생성</td></tr>
-<tr><td><code>p</code></td><td>파티션 테이블 출력</td></tr>
-<tr><td><code>w</code></td><td>저장 및 종료</td></tr>
-<tr><td><code>q</code></td><td>저장 없이 종료</td></tr>
+<h2>3. 얼마나 찼나: df와 du <span class="star">★</span></h2>
+<div class="tags"><span>df</span><span>du</span><span>-h / -H</span></div>
+<div class="vsgrid">
+ <div class="vs"><b>df (Disk Free)</b><span>디스크의 전체 용량, 사용량, 남은 공간을 <strong>파일 시스템 단위</strong>로 출력</span></div>
+ <div class="vs"><b>du (Disk Usage)</b><span>지정한 디렉터리나 파일이 <strong>실제 차지하는</strong> 디스크 공간의 크기 출력</span></div>
+</div>
+<p>아래에서 <code>df</code>와 <code>du</code>를 번갈아 눌러 막대의 어느 부분을 보는지 비교하고, 단위와 에러 처리도 바꿔 보자.</p>
+<details class="vizbox" data-viz="dflab" open><summary><span class="vi">📊</span><span><b>df와 du 비교</b><small>디스크 전체(df)와 폴더 하나(du), -h와 -H, 2&gt; /dev/null</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="dflab"></div></details>
+<div class="tw"><table><thead><tr><th>명령</th><th>뜻</th></tr></thead><tbody>
+<tr><td><code>df -h</code></td><td>사람이 읽기 쉬운 단위, 2의 승수(KiB, MiB, GiB) 기준</td></tr>
+<tr><td><code>df -H</code></td><td>10의 승수(KB, MB, GB) 기준</td></tr>
+<tr><td><code>du -sh /etc</code></td><td>총사용량을 요약(<code>-s</code>)하고 읽기 쉬운 단위(<code>-h</code>)로 출력</td></tr>
+<tr><td><code>du -sh /etc 2&gt; /dev/null</code></td><td>권한 부족 에러 메시지를 버리고 용량 결과만 표시 (13강, 18강)</td></tr>
 </tbody></table></div>
-<h3>2단계: 파일 시스템 포맷 (mkfs)</h3>
-<pre><code>sudo mkfs.ext4 /dev/sdb1    # 파티션을 EXT4로 포맷 (mkfs.xfs, mkfs.vfat 등 사용 가능)</code></pre>
-<h3>3단계: 마운트 및 마운트 해제 (mount / umount)</h3>
-<ul><li><strong>마운트 (<code>mount</code>)</strong>: 포맷된 파티션을 리눅스 디렉터리에 연결해 사용할 수 있게 만든다.</li><li><strong>마운트 해제 (<code>umount</code>)</strong>: 안전하게 디스크 연결을 해제한다.</li></ul>
-<pre><code>sudo mount /dev/sdb1 /mnt
-sudo umount /dev/sdb1    # 또는 sudo umount /mnt</code></pre>
-<p>💡 해설: <code>mkfs</code>는 파티션의 기존 데이터를 지우므로 실행 전에 <code>lsblk</code>로 장치 이름을 꼭 확인한다. 명령어 철자는 <code>unmount</code>가 아니라 <code>umount</code>이고, <code>mount</code>로 붙인 연결은 재부팅하면 풀린다. 부팅 시 자동으로 연결하려면 <code>/etc/fstab</code>에 등록한다.</p>
-<details class="vizbox" data-viz="disklab"><summary><span class="vi">💽</span><span><b>새 디스크 3단계 따라가기</b><small>명령을 누르면 lsblk 화면이 어떻게 바뀌는지 보인다</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="disklab"></div></details>
+<p>💡 해설: 화면에는 <code>-h</code>, <code>-H</code> 모두 <code>G</code>처럼 짧게 표시된다. <code>du</code>에서는 <code>-H</code>가 단위 옵션이 아니므로 위 자료에서도 단위 전환은 <code>df</code>에만 적용했다.</p>
 </section>
 <section class="sec" id="l25-s5">
+<h2>4. 새 디스크 붙이기: fdisk → mkfs → mount <span class="star">★</span></h2>
+<div class="tags"><span>fdisk</span><span>mkfs</span><span>mount</span></div>
+<h3>1단계: 파티션 생성 (fdisk)</h3>
+<p><code>sudo fdisk /dev/sdb</code>를 실행하면 fdisk 안으로 들어가 한 글자 명령으로 파티션을 만든다. <code>w</code>와 <code>q</code>의 차이를 직접 확인해 보자.</p>
+<details class="vizbox" data-viz="fdisklab" open><summary><span class="vi">✂️</span><span><b>fdisk 안에서 n · p · w · q</b><small>w로 나가면 저장되고, q로 나가면 사라진다</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="fdisklab"></div></details>
+<h3>2단계: 파일 시스템 포맷 (mkfs)</h3>
+<pre><code>sudo mkfs.ext4 /dev/sdb1</code></pre>
+<p><code>mkfs.</code> 뒤에 만들 파일 시스템을 적는다. <code>mkfs.xfs</code>, <code>mkfs.vfat</code> 등도 쓸 수 있다.</p>
+<p>💡 해설: 포맷하면 그 파티션의 기존 데이터는 사라진다. 실행 전에 <code>lsblk</code>로 장치 이름을 꼭 확인한다.</p>
+<h3>3단계: 마운트 및 마운트 해제 (mount / umount)</h3>
+<pre><code>sudo mount /dev/sdb1 /mnt     # 연결
+sudo umount /dev/sdb1         # 해제 (sudo umount /mnt 도 같음)</code></pre>
+<p>세 단계를 모두 마친 모습은 1번의 그림에서 ④까지 눌러 확인할 수 있다.</p>
+</section>
+<section class="sec" id="l25-s6">
+<h2>5. 파일 시스템 종류 <span class="star">★</span></h2>
+<div class="tags"><span>EXT4</span><span>XFS</span><span>FAT32 / NTFS</span><span>TMPFS</span></div>
+<p><code>mkfs.ext4</code>의 <code>ext4</code> 자리에 들어가는 것이 파일 시스템의 종류다. 카드를 눌러 특징을 보고, 아래 실험으로 TMPFS의 휘발성을 확인해 보자.</p>
+<details class="vizbox" data-viz="fslab" open><summary><span class="vi">🧱</span><span><b>파일 시스템 고르기와 휘발성 실험</b><small>전원을 끄면 tmpfs의 파일만 사라진다</small></span><span class="go go-c">펼치기 ▾</span><span class="go go-o">접기 ▴</span></summary><div class="vizhost" data-viz="fslab"></div></details>
+</section>
+<section class="sec" id="l25-s7">
 <h2>한눈에 보는 핵심 <span class="star">★</span></h2>
-<ul class="check"><li><label><input type="checkbox" data-key="l25-c1"> EXT4 대부분의 기본, XFS 로키·센트OS 기본, FAT32/NTFS 윈도우, TMPFS RAM 기반 휘발성</label></li><li><label><input type="checkbox" data-key="l25-c2"> <code>df</code> 디스크 전체, <code>du</code> 특정 디렉터리·파일. <code>-h</code> 2의 승수, <code>df -H</code> 10의 승수</label></li><li><label><input type="checkbox" data-key="l25-c3"> <code>lsblk</code> 블록 장치 트리, <code>-f</code> 파일 시스템과 UUID, <code>-p</code> 전체 경로</label></li><li><label><input type="checkbox" data-key="l25-c4"> <code>sda</code> 디스크, <code>sda1</code> 파티션</label></li><li><label><input type="checkbox" data-key="l25-c5"> 새 디스크: <code>fdisk</code> 파티션 → <code>mkfs</code> 포맷 → <code>mount</code> 연결</label></li><li><label><input type="checkbox" data-key="l25-c6"> fdisk 내부: <code>n</code> 생성, <code>p</code> 출력, <code>w</code> 저장 후 종료, <code>q</code> 저장 없이 종료</label></li></ul>
+<ul class="check"><li><label><input type="checkbox" data-key="l25-c1"> 리눅스는 드라이브 문자가 없다. 새 디스크는 폴더에 <strong>마운트</strong>해야 쓸 수 있다</label></li><li><label><input type="checkbox" data-key="l25-c2"> 순서: 디스크(<code>sdb</code>) → 파티션(<code>sdb1</code>, fdisk) → 파일 시스템(mkfs) → 마운트(mount)</label></li><li><label><input type="checkbox" data-key="l25-c3"> <code>lsblk</code> 장치 트리, <code>-f</code> 종류와 UUID, <code>-p</code> 전체 경로</label></li><li><label><input type="checkbox" data-key="l25-c4"> <code>df</code> 디스크 전체 사용량, <code>du -sh</code> 폴더 하나의 크기</label></li><li><label><input type="checkbox" data-key="l25-c5"> <code>df -h</code>는 2의 승수, <code>df -H</code>는 10의 승수</label></li><li><label><input type="checkbox" data-key="l25-c6"> fdisk 안: <code>n</code> 생성, <code>p</code> 출력, <code>w</code> 저장 후 종료, <code>q</code> 저장 없이 종료</label></li><li><label><input type="checkbox" data-key="l25-c7"> EXT4 대부분의 기본, XFS 로키 기본, FAT32/NTFS 윈도우, TMPFS 메모리(휘발성)</label></li></ul>
 </section>
 
 </article><!--/SG:PANE:l25-->
@@ -2715,6 +2797,26 @@ select{border-radius:4px}
 .got{border-radius:4px;border-color:var(--green);background:color-mix(in srgb,var(--green) 16%,transparent)}
 .tip{border:1px solid var(--line);background:var(--code);border-radius:4px}
 .mk.good{color:var(--ok)}
+
+/* Clean light (memorization sheet) */
+.seg{border-radius:999px;background:var(--code);border:0;padding:3px}
+.seg button{border-radius:999px;background:transparent;font-weight:600;padding:5px 14px}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--accent);box-shadow:0 1px 3px rgba(16,24,40,.12)}
+.btn{border-radius:999px;font-weight:600}
+.prog{font:600 12.5px/1.4 var(--sans)}
+.pbar{border-radius:999px;background:var(--code)}
+.u{border-radius:14px;padding:16px 18px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.u h3 small,.hint{font:500 12px/1.4 var(--sans)}
+.done{font:500 12.5px/1.4 var(--sans)}
+table.t{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}
+table.t th,table.t td{border:0;border-bottom:1px solid var(--line);padding:8px 12px}
+table.t tr:last-child td{border-bottom:0}
+table.t th{background:#f7f8fa;color:var(--muted);font-size:13px}
+.c{border-radius:6px;padding:0 4px}
+.mode-mem .c:not(.show){border-radius:6px 6px 0 0}
+select{border-radius:8px;background:var(--surface);padding:5px 8px}
+.chip{background:var(--surface)}
+.tip{border-left-color:var(--star);background:#fff8e8;border-radius:0 10px 10px 0}
 </style><div class="vroot"><div id="root"></div></div></template>
 <!--SG:VIZTPL:l9--><template id="viz-tpl-pathlab"><style>
 *{box-sizing:border-box}
@@ -2800,22 +2902,6 @@ input{width:100%;max-width:300px;padding:6px 8px;border:1px solid var(--line);ba
 <div class="files" id="fs"></div>
 <div class="msg" id="m" role="status"></div>
 </div></template><!--/SG:VIZTPL:l24-->
-<!--SG:VIZTPL:l25--><template id="viz-tpl-disklab"><style>
-*{box-sizing:border-box}
-.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:4px 10px;font:13px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
-button:hover{border-color:var(--accent)}
-pre{margin:8px 0;padding:8px 10px;font:12.5px/1.7 ui-monospace,Menlo,monospace;background:var(--code);border:1px solid var(--line);border-radius:4px;overflow-x:auto}
-.new{color:var(--ok);font-weight:700}
-.msg{font-size:13px;min-height:3em}.msg.bad{color:var(--bad)}
-.note{color:var(--muted);font-size:12.5px}
-</style>
-<div class="vroot">
-<div id="btns"></div>
-<pre id="o"></pre>
-<div class="msg" id="m" role="status"></div>
-<div class="note">실제 명령을 실행하지 않는 연습 화면입니다. 장치 이름과 크기는 예시입니다.</div>
-</div></template><!--/SG:VIZTPL:l25-->
 <!--SG:VIZTPL:l27--><template id="viz-tpl-permlab"><style>
 *{box-sizing:border-box}
 .vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
@@ -2875,6 +2961,158 @@ td{border:1px solid var(--line);padding:3px 8px}td:first-child{color:var(--muted
 <table id="t" role="status"></table>
 <div class="bad" id="e"></div>
 </div></template><!--/SG:VIZTPL:l31-->
+<!--SG:VIZTPL:l25--><template id="viz-tpl-disklab"><style>
+*{box-sizing:border-box}
+.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:5px 10px;font:12.5px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
+button:hover{border-color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.st{border:1px solid var(--line);border-radius:4px;padding:4px 6px;font-size:12px;text-align:center;color:var(--muted);background:var(--surface)}
+.st.done{border-color:var(--accent);color:var(--accent);font-weight:700}
+svg.tall{display:none}
+@media (max-width:560px){svg.wide{display:none}svg.tall{display:block}}
+svg{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+svg text{fill:var(--ink);font:14px ui-monospace,Menlo,monospace}
+svg .lbl{font-weight:700}
+.disk{fill:var(--code);stroke:var(--line-strong,#a9b4c6);stroke-width:1.5}
+.part{fill:var(--accent-soft,#eaf3fd);stroke:var(--accent);stroke-width:2}
+.fsl{stroke:var(--accent);stroke-width:1;opacity:.45}
+.tree{stroke:var(--line-strong,#a9b4c6);stroke-width:1.5;fill:none}
+.mntbox{fill:none;stroke:var(--line);stroke-width:1.5}
+.mntbox.on{stroke:var(--ok);stroke-width:2.5}
+.link{stroke:var(--ok);stroke-width:2.5;fill:none;stroke-dasharray:6 5}
+.hide{display:none}
+pre{margin:8px 0 0;padding:8px 10px;font:12px/1.65 ui-monospace,Menlo,monospace;background:var(--code);border:1px solid var(--line);border-radius:4px;overflow-x:auto}
+.new{color:var(--ok);font-weight:700}
+.msg{font-size:13.5px;min-height:3.2em;margin:8px 0 6px}.msg.bad{color:var(--bad)}
+.note{color:var(--muted);font-size:12px}
+</style>
+<div class="vroot">
+<div class="steps"><div class="st" id="s0">① 디스크</div><div class="st" id="s1">② 파티션</div><div class="st" id="s2">③ 파일 시스템</div><div class="st" id="s3">④ 마운트</div></div>
+<svg class="wide" viewBox="0 0 640 210" role="img" aria-label="디스크와 폴더 트리 그림">
+ <text x="20" y="22" class="lbl">새 디스크 sdb · 10G</text>
+ <rect class="disk" x="20" y="32" width="260" height="160" rx="10"></rect>
+ <g class="gp hide"><rect class="part" x="38" y="52" width="224" height="120" rx="6"></rect>
+  <g class="gf hide"><line class="fsl" x1="46" y1="80" x2="254" y2="80"></line><line class="fsl" x1="46" y1="100" x2="254" y2="100"></line><line class="fsl" x1="46" y1="120" x2="254" y2="120"></line><line class="fsl" x1="46" y1="140" x2="254" y2="140"></line><line class="fsl" x1="120" y1="60" x2="120" y2="164"></line><line class="fsl" x1="190" y1="60" x2="190" y2="164"></line></g>
+  <text x="50" y="72" class="lbl">sdb1</text><text x="196" y="160" class="tf hide">ext4</text></g>
+ <text x="78" y="118" class="te">파티션 없음</text>
+ <text x="420" y="22" class="lbl">리눅스 폴더 트리</text>
+ <text x="430" y="52">/</text>
+ <path class="tree" d="M436 58 V160 M436 82 H470 M436 121 H470 M436 160 H470"></path>
+ <text x="478" y="87">home</text><text x="478" y="126">etc</text>
+ <rect class="mntbox" x="472" y="146" width="62" height="26" rx="4"></rect><text x="480" y="165">mnt</text>
+ <path class="link hide" d="M262 112 C340 112 380 159 470 159"></path><text x="318" y="104" class="lt hide">mount</text>
+</svg>
+<svg class="tall" viewBox="0 0 340 380" role="img" aria-label="디스크와 폴더 트리 그림">
+ <text x="16" y="20" class="lbl">새 디스크 sdb · 10G</text>
+ <rect class="disk" x="16" y="30" width="308" height="150" rx="10"></rect>
+ <g class="gp hide"><rect class="part" x="32" y="48" width="276" height="114" rx="6"></rect>
+  <g class="gf hide"><line class="fsl" x1="40" y1="76" x2="300" y2="76"></line><line class="fsl" x1="40" y1="96" x2="300" y2="96"></line><line class="fsl" x1="40" y1="116" x2="300" y2="116"></line><line class="fsl" x1="40" y1="136" x2="300" y2="136"></line><line class="fsl" x1="120" y1="56" x2="120" y2="156"></line><line class="fsl" x1="210" y1="56" x2="210" y2="156"></line></g>
+  <text x="44" y="68" class="lbl">sdb1</text><text x="246" y="152" class="tf hide">ext4</text></g>
+ <text x="110" y="112" class="te">파티션 없음</text>
+ <text x="16" y="232" class="lbl">리눅스 폴더 트리</text>
+ <text x="24" y="262">/</text>
+ <path class="tree" d="M30 268 V352 M30 290 H64 M30 321 H64 M30 352 H64"></path>
+ <text x="72" y="295">home</text><text x="72" y="326">etc</text>
+ <rect class="mntbox" x="66" y="338" width="62" height="26" rx="4"></rect><text x="74" y="357">mnt</text>
+ <path class="link hide" d="M170 162 C170 250 240 300 130 351"></path><text x="196" y="262" class="lt hide">mount</text>
+</svg>
+<div class="msg" id="m" role="status"></div>
+<div id="btns"></div>
+<pre id="o"></pre>
+<div class="note">실제 명령을 실행하지 않는 연습 화면입니다. 장치 이름, 크기, UUID는 예시입니다. 순서를 바꿔서 눌러 보세요.</div>
+</div></template>
+<template id="viz-tpl-lsblklab"><style>
+*{box-sizing:border-box}
+.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:5px 10px;font:12.5px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
+button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.term{background:var(--code);border:1px solid var(--line);border-radius:4px;padding:6px 0;font:12.5px/1.75 ui-monospace,Menlo,monospace;overflow-x:auto}
+.ln{display:block;white-space:pre;padding:0 10px;min-width:max-content}
+.row{cursor:pointer}.row:hover{background:var(--accent-soft,#eaf3fd)}
+.row.sel{background:var(--accent);color:#fff}
+.hd{color:var(--muted)}.newc{color:var(--accent);font-weight:700}
+.hd .newc{text-decoration:underline}
+.ex{margin-top:8px;border-left:3px solid var(--accent);background:var(--surface);padding:8px 12px;font-size:13.5px;min-height:3.2em}
+.ex b{font-family:ui-monospace,Menlo,monospace}
+.hint{color:var(--muted);font-size:12px;margin-top:6px}
+</style>
+<div class="vroot">
+<div id="opts"></div>
+<div class="term" id="t"></div>
+<div class="ex" id="x" role="status"></div>
+<div class="hint">출력의 줄을 눌러 보세요. 예시 화면이며 실제 크기와 UUID는 다릅니다.</div>
+</div></template>
+<template id="viz-tpl-dflab"><style>
+*{box-sizing:border-box}
+.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:5px 10px;font:12.5px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
+button:disabled{opacity:.4;cursor:default}
+button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.grp{margin:4px 0 2px;font-size:12px;color:var(--muted);font-weight:600}
+.bar{display:flex;height:34px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface);margin:6px 0 2px}
+.seg{display:flex;align-items:center;justify-content:center;font:11.5px ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;overflow:hidden;transition:background-color .2s ease}
+.used{background:var(--muted)}.used.hit{background:var(--accent)}
+.free{color:var(--muted)}
+.leg{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+pre{margin:8px 0 0;padding:8px 10px;font:12px/1.65 ui-monospace,Menlo,monospace;background:var(--code);border:1px solid var(--line);border-radius:4px;overflow-x:auto;min-height:62px}
+.er{color:var(--bad)}.hi{color:var(--accent);font-weight:700}
+.ex{font-size:13.5px;margin-top:8px;min-height:2.6em}
+</style>
+<div class="vroot">
+<div class="grp">1. 무엇을 볼까</div><div id="cmds"></div>
+<div class="grp">2. 단위 (df 옵션)</div><div id="units"></div>
+<div class="grp">3. 에러 메시지</div><div id="errs"></div>
+<div class="bar" id="bar"></div>
+<div class="leg"><span>/dev/sda1 전체 디스크</span><span id="lg"></span></div>
+<pre id="o" role="status"></pre>
+<div class="ex" id="x"></div>
+</div></template>
+<template id="viz-tpl-fdisklab"><style>
+*{box-sizing:border-box}
+.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:5px 12px;font:13px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
+button:disabled{opacity:.4;cursor:default}
+button b{color:var(--accent)}
+pre{margin:0 0 8px;padding:8px 10px;font:12px/1.65 ui-monospace,Menlo,monospace;background:var(--code);border:1px solid var(--line);border-radius:4px;overflow-x:auto;height:210px;overflow-y:auto}
+.c{color:var(--accent);font-weight:700}.ok{color:var(--ok);font-weight:700}.mut{color:var(--muted)}
+.ex{font-size:13.5px;min-height:2.6em;border-left:3px solid var(--accent);padding:4px 10px;margin-bottom:6px}
+</style>
+<div class="vroot">
+<pre id="o" aria-live="polite"></pre>
+<div class="ex" id="x"></div>
+<div id="btns"></div>
+</div></template>
+<template id="viz-tpl-fslab"><style>
+*{box-sizing:border-box}
+.vroot{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:5px 10px;font:12.5px ui-monospace,Menlo,monospace;cursor:pointer;margin:0 6px 6px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px;margin-bottom:8px}
+.card{border:1.5px solid var(--line);border-radius:4px;padding:8px 10px;background:var(--surface);cursor:pointer;text-align:left;margin:0;font:inherit}
+.card b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:14px}
+.card small{color:var(--muted);font-size:12px}
+.card[aria-pressed=true]{border-color:var(--accent);background:var(--accent-soft,#eaf3fd)}
+.info{border-left:3px solid var(--accent);padding:6px 12px;font-size:13.5px;margin-bottom:12px;min-height:3em}
+h4{margin:10px 0 6px;font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.box{border:1px solid var(--line);border-radius:4px;padding:8px 10px;background:var(--surface);min-height:120px}
+.box .t{font-size:12px;color:var(--muted);margin-bottom:6px}
+.box .t b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
+.f{display:inline-block;border:1px solid var(--line);border-radius:2px;padding:1px 6px;margin:2px;font:12px ui-monospace,Menlo,monospace;background:var(--code)}
+.gone{color:var(--bad);font-size:12.5px}
+.msg{font-size:13px;color:var(--muted);margin-top:6px;min-height:1.6em}
+</style>
+<div class="vroot">
+<div class="cards" id="cards"></div>
+<div class="info" id="info" role="status"></div>
+<h4>휘발성 실험: 디스크(EXT4)와 메모리(TMPFS)에 파일을 저장하고 전원을 꺼 보자</h4>
+<div class="two">
+ <div class="box"><div class="t"><b>/dev/sda1</b> · ext4 · 디스크</div><div id="d"></div></div>
+ <div class="box"><div class="t"><b>tmpfs</b> · 메모리(RAM)</div><div id="r"></div></div>
+</div>
+<div style="margin-top:8px" id="btns"></div>
+<div class="msg" id="m"></div>
+</div></template><!--/SG:VIZTPL:l25-->
 <!--SG:TPLS-->
 <script>
 (function(){
@@ -3580,72 +3818,6 @@ input.addEventListener('input', draw);
 draw();
 
 };/*/SG:VIZJS:l24*/
-/*SG:MEMJS:l25*/VIZ.meml25 = function(__SR){
-var UNITS = [
-{id:'u1', t:'파일 시스템 종류와 용량 확인', ctx:'디스크에 무엇이 깔려 있고 얼마나 찼는지 볼 때:',
- blocks:[
- {match:{title:'설명에 맞는 파일 시스템은?', rows:[
-  ['대부분의 리눅스 배포판 기본','EXT4'],
-  ['로키 리눅스 기본, 고성능 저널링','XFS'],
-  ['윈도우에서 주로 사용','NTFS'],
-  ['RAM 기반, 전원이 꺼지면 사라짐','TMPFS']]}},
- {h:`<ul><li>파일 시스템은 데이터를 저장하고 접근하는 {{구조적 방식}}이다.</li><li>디스크의 전체 용량과 남은 공간은 {{df}}, 특정 디렉터리가 차지한 크기는 {{du}}로 본다.</li><li><code>df -h</code>는 {{2의 승수}}, <code>df -H</code>는 {{10의 승수}} 기준이다.</li><li><code>du -sh</code>의 <code>-s</code>는 {{요약}}, <code>-h</code>는 {{읽기 쉬운 단위}}이다.</li></ul>`}]},
-{id:'u2', t:'블록 장치', ctx:'<code>lsblk</code> 로 트리를 읽으면:',
- blocks:[
- {h:`<ul><li>두 번째 하드디스크의 이름은 {{sdb}}이고, 그 첫 번째 파티션은 {{sdb1}}이다.</li><li>파일 시스템 유형과 UUID를 함께 보는 옵션은 {{-f}}, 전체 경로를 보는 옵션은 {{-p}}이다.</li></ul>`}]},
-{id:'u3', t:'새 디스크 3단계', ctx:'방금 연결한 /dev/sdb 를 쓸 수 있게 만들려면:',
- blocks:[
- {order:{items:['fdisk로 파티션 생성','mkfs로 파일 시스템 포맷','mount로 디렉터리에 연결']}},
- {match:{title:'동작에 맞는 명령은?', rows:[
-  ['/dev/sdb에 파티션 만들기','sudo fdisk /dev/sdb'],
-  ['sdb1을 EXT4로 포맷','sudo mkfs.ext4 /dev/sdb1'],
-  ['sdb1을 /mnt에 연결','sudo mount /dev/sdb1 /mnt'],
-  ['/mnt 연결 해제','sudo umount /mnt']]}},
- {h:`<ul><li><code>fdisk</code> 안에서 새 파티션은 {{n}}, 테이블 출력은 {{p}}, 저장 후 종료는 {{w}}, 저장 없이 종료는 {{q}}이다.</li></ul>`}]}
-];
-MEMUI(__SR, UNITS, 'linuxsg-mem-l25');
-};/*/SG:MEMJS:l25*/
-/*SG:VIZJS:l25*/VIZ.disklab = function(__SR){
-
-var part, fs, mnt;
-var out = __SR.getElementById('o'), msg = __SR.getElementById('m');
-function pad(s, n){ return (s + '            ').slice(0, n); }
-function draw(text, bad, fresh){
-  var mark = function(s, key){ return fresh === key ? '<span class="new">' + s + '</span>' : s; };
-  var rows = ['$ lsblk -f', pad('NAME', 10) + pad('SIZE', 6) + pad('FSTYPE', 8) + 'MOUNTPOINT',
-    pad('sda', 10) + pad('25G', 6), pad('└─sda1', 10) + pad('25G', 6) + pad('ext4', 8) + '/', pad('sdb', 10) + pad('10G', 6)];
-  if (part) rows.push(mark(pad('└─sdb1', 10) + pad('10G', 6), 'part') + mark(pad(fs ? 'ext4' : '', 8), 'fs') + mark(mnt ? '/mnt' : '', 'mnt'));
-  out.innerHTML = rows.join('\n');
-  msg.textContent = text;
-  msg.className = 'msg' + (bad ? ' bad' : '');
-}
-function reset(){ part = fs = mnt = false; draw('새 디스크 sdb가 연결되었지만 파티션이 없습니다. 순서를 바꿔서도 눌러 보세요.'); }
-var CMDS = [
- {k:'sudo fdisk /dev/sdb', run:function(){
-   if (part) return draw('이미 파티션 sdb1이 있습니다.', true);
-   part = true; draw('1단계: n으로 파티션을 만들고 w로 저장했습니다. sdb1이 생겼지만 아직 파일 시스템이 없습니다.', false, 'part'); }},
- {k:'sudo mkfs.ext4 /dev/sdb1', run:function(){
-   if (!part) return draw('실패: /dev/sdb1이 아직 없습니다. 파티션을 먼저 만들어야 합니다.', true);
-   if (mnt) return draw('실패: 마운트된 파티션은 포맷할 수 없습니다. 먼저 umount 합니다.', true);
-   fs = true; draw('2단계: sdb1을 EXT4로 포맷했습니다. 파일 시스템이 생겼지만 아직 디렉터리에 연결되지 않았습니다.', false, 'fs'); }},
- {k:'sudo mount /dev/sdb1 /mnt', run:function(){
-   if (!part) return draw('실패: /dev/sdb1이 아직 없습니다.', true);
-   if (!fs) return draw('실패: 파일 시스템이 없어 마운트할 수 없습니다. 포맷을 먼저 합니다.', true);
-   if (mnt) return draw('이미 /mnt에 연결되어 있습니다.', true);
-   mnt = true; draw('3단계: sdb1을 /mnt에 연결했습니다. 이제 /mnt에 파일을 저장하면 새 디스크에 기록됩니다.', false, 'mnt'); }},
- {k:'sudo umount /mnt', run:function(){
-   if (!mnt) return draw('실패: /mnt에 연결된 장치가 없습니다.', true);
-   mnt = false; draw('연결을 해제했습니다. 파일 시스템과 데이터는 sdb1에 그대로 남아 있습니다.'); }}
-];
-var box = __SR.getElementById('btns');
-CMDS.forEach(function(c){
-  var b = document.createElement('button'); b.type = 'button'; b.textContent = c.k;
-  b.addEventListener('click', c.run); box.appendChild(b);
-});
-var r = document.createElement('button'); r.type = 'button'; r.textContent = '처음부터'; r.addEventListener('click', reset); box.appendChild(r);
-reset();
-
-};/*/SG:VIZJS:l25*/
 /*SG:MEMJS:l26*/VIZ.meml26 = function(__SR){
 var UNITS = [
 {id:'u1', t:'계정 만들기', ctx:'<code>sudo adduser user1</code> 을 실행하면:',
@@ -3963,6 +4135,263 @@ var UNITS = [
 ];
 MEMUI(__SR, UNITS, 'linuxsg-mem-l34');
 };/*/SG:MEMJS:l34*/
+/*SG:MEMJS:l25*/VIZ.meml25 = function(__SR){
+var UNITS = [
+{id:'u0', t:'큰 그림', ctx:'윈도우의 E: 드라이브 대신, 리눅스에서는 새 디스크를 폴더에 연결한다:',
+ blocks:[
+ {order:{items:['디스크 sdb (빈 땅)','파티션 sdb1 (구역 나누기, fdisk)','파일 시스템 ext4 (정리 규칙, mkfs)','마운트 /mnt (폴더에 연결, mount)']}},
+ {h:`<ul><li>리눅스에는 {{드라이브 문자}}가 없고, 새 디스크는 폴더에 {{마운트}}해야 쓸 수 있다.</li><li>디스크를 용도별로 나눈 구역은 {{파티션}}, 데이터를 저장하는 규칙을 까는 작업은 {{포맷}}이다.</li></ul>`}]},
+{id:'u1', t:'파일 시스템 종류와 용량 확인', ctx:'디스크에 무엇이 깔려 있고 얼마나 찼는지 볼 때:',
+ blocks:[
+ {match:{title:'설명에 맞는 파일 시스템은?', rows:[
+  ['대부분의 리눅스 배포판 기본','EXT4'],
+  ['로키 리눅스 기본, 고성능 저널링','XFS'],
+  ['윈도우에서 주로 사용','NTFS'],
+  ['RAM 기반, 전원이 꺼지면 사라짐','TMPFS']]}},
+ {h:`<ul><li>파일 시스템은 데이터를 저장하고 접근하는 {{구조적 방식}}이다.</li><li>디스크의 전체 용량과 남은 공간은 {{df}}, 특정 디렉터리가 차지한 크기는 {{du}}로 본다.</li><li><code>df -h</code>는 {{2의 승수}}, <code>df -H</code>는 {{10의 승수}} 기준이다.</li><li><code>du -sh</code>의 <code>-s</code>는 {{요약}}, <code>-h</code>는 {{읽기 쉬운 단위}}이다.</li></ul>`}]},
+{id:'u2', t:'블록 장치', ctx:'<code>lsblk</code> 로 트리를 읽으면:',
+ blocks:[
+ {h:`<ul><li>두 번째 하드디스크의 이름은 {{sdb}}이고, 그 첫 번째 파티션은 {{sdb1}}이다.</li><li>파일 시스템 유형과 UUID를 함께 보는 옵션은 {{-f}}, 전체 경로를 보는 옵션은 {{-p}}이다.</li></ul>`}]},
+{id:'u3', t:'새 디스크 3단계', ctx:'방금 연결한 /dev/sdb 를 쓸 수 있게 만들려면:',
+ blocks:[
+ {order:{items:['fdisk로 파티션 생성','mkfs로 파일 시스템 포맷','mount로 디렉터리에 연결']}},
+ {match:{title:'동작에 맞는 명령은?', rows:[
+  ['/dev/sdb에 파티션 만들기','sudo fdisk /dev/sdb'],
+  ['sdb1을 EXT4로 포맷','sudo mkfs.ext4 /dev/sdb1'],
+  ['sdb1을 /mnt에 연결','sudo mount /dev/sdb1 /mnt'],
+  ['/mnt 연결 해제','sudo umount /mnt']]}},
+ {h:`<ul><li><code>fdisk</code> 안에서 새 파티션은 {{n}}, 테이블 출력은 {{p}}, 저장 후 종료는 {{w}}, 저장 없이 종료는 {{q}}이다.</li></ul>`}]}
+];
+MEMUI(__SR, UNITS, 'linuxsg-mem-l25');
+};/*/SG:MEMJS:l25*/
+/*SG:VIZJS:l25*/VIZ.disklab = function(__SR){
+
+var part, fs, mnt, fresh;
+var $ = function(id){ return __SR.getElementById(id); };
+function pad(s, n){ s = String(s); while (s.length < n) s += ' '; return s; }
+function show(c, on){ __SR.querySelectorAll('.' + c).forEach(function(e){ e.classList.toggle('hide', !on); }); }
+function draw(text, bad){
+  show('gp', part); show('gf', fs); show('tf', fs); show('te', !part); show('link', mnt); show('lt', mnt);
+  __SR.querySelectorAll('.mntbox').forEach(function(e){ e.classList.toggle('on', mnt); });
+  [true, part, fs, mnt].forEach(function(v, i){ $('s' + i).classList.toggle('done', !!v); });
+  var mark = function(s, k){ return fresh === k ? '<span class="new">' + s + '</span>' : s; };
+  var rows = ['$ lsblk -f', pad('NAME', 9) + pad('FSTYPE', 8) + pad('UUID', 14) + 'MOUNTPOINTS', 'sdb'];
+  if (part) rows.push(mark('└─sdb1  ', 'part') + mark(pad(fs ? 'ext4' : '', 8) + pad(fs ? '7b1e…' : '', 14), 'fs') + mark(mnt ? '/mnt' : '', 'mnt'));
+  if (mnt) rows.push('', '$ df -h /mnt', 'Filesystem   Size  Used Avail Use% Mounted on', mark('/dev/sdb1    9.8G   24K  9.3G   1% /mnt', 'mnt'));
+  $('o').innerHTML = rows.join('\n');
+  $('m').textContent = text;
+  $('m').className = 'msg' + (bad ? ' bad' : '');
+  fresh = null;
+}
+function reset(){ part = fs = mnt = false; draw('① 새 디스크 sdb가 연결되었습니다. 아직 구역도 규칙도 없는 빈 땅이라 파일을 저장할 수 없습니다.'); }
+var CMDS = [
+ {k:'sudo fdisk /dev/sdb', run:function(){
+   if (part) return draw('이미 파티션 sdb1이 있습니다.', true);
+   part = true; fresh = 'part'; draw('② 디스크에 구역(파티션) sdb1을 만들었습니다. 아직 정리 규칙이 없어 파일을 저장할 수 없습니다.'); }},
+ {k:'sudo mkfs.ext4 /dev/sdb1', run:function(){
+   if (!part) return draw('실패: /dev/sdb1이 아직 없습니다. 구역(파티션)부터 만들어야 합니다.', true);
+   if (mnt) return draw('실패: 연결(마운트)된 상태에서는 포맷하지 않습니다. 먼저 umount 합니다.', true);
+   fs = true; fresh = 'fs'; draw('③ sdb1에 ext4라는 정리 규칙(파일 시스템)을 깔았습니다. 하지만 아직 어떤 폴더와도 연결되지 않았습니다.'); }},
+ {k:'sudo mount /dev/sdb1 /mnt', run:function(){
+   if (!part) return draw('실패: /dev/sdb1이 아직 없습니다.', true);
+   if (!fs) return draw('실패: 파일 시스템이 없어 연결할 수 없습니다. 포맷(mkfs)을 먼저 합니다.', true);
+   if (mnt) return draw('이미 /mnt에 연결되어 있습니다.', true);
+   mnt = true; fresh = 'mnt'; draw('④ sdb1을 /mnt 폴더에 연결했습니다. 이제 /mnt에 저장한 파일은 새 디스크에 기록됩니다.'); }},
+ {k:'sudo umount /mnt', run:function(){
+   if (!mnt) return draw('실패: /mnt에 연결된 장치가 없습니다.', true);
+   mnt = false; draw('연결을 해제했습니다. 파티션과 파일 시스템은 그대로 남아 있어 다시 mount 하면 됩니다.'); }}
+];
+CMDS.forEach(function(c){
+  var b = document.createElement('button'); b.type = 'button'; b.textContent = c.k;
+  b.addEventListener('click', c.run); $('btns').appendChild(b);
+});
+var r = document.createElement('button'); r.type = 'button'; r.textContent = '처음부터'; r.addEventListener('click', reset); $('btns').appendChild(r);
+reset();
+
+};
+VIZ.lsblklab = function(__SR){
+
+var DEV = [
+ {n:'sda', tree:'', size:'25G', type:'disk', fs:'', uuid:'', mp:'', ex:'<b>sda</b>: 첫 번째 물리 하드디스크. 디스크는 연결된 순서대로 a, b, c… 알파벳이 붙는다.'},
+ {n:'sda1', tree:'└─', size:'25G', type:'part', fs:'ext4', uuid:'3f9c2a1e-…', mp:'/', ex:'<b>sda1</b>: sda의 1번 파티션(디스크 이름 뒤 숫자). MOUNTPOINTS가 <b>/</b>이므로 지금 쓰는 리눅스가 여기 들어 있다.'},
+ {n:'sdb', tree:'', size:'10G', type:'disk', fs:'', uuid:'', mp:'', ex:'<b>sdb</b>: 두 번째 물리 하드디스크. 아래에 파티션 줄이 없으므로 아직 나누지도, 연결하지도 않은 새 디스크다.'},
+ {n:'sr0', tree:'', size:'1024M', type:'rom', fs:'', uuid:'', mp:'', ex:'<b>sr0</b>: CD-ROM. lsblk는 하드디스크뿐 아니라 CD-ROM, USB 같은 블록 장치를 모두 보여 준다.'}
+];
+var MODES = [
+ {k:'lsblk', cols:['NAME','SIZE','TYPE','MOUNTPOINTS'], newc:[], ex:'기본 출력: 블록 장치를 트리 형태로 보여 준다. 디스크 아래에 └─ 로 그 디스크의 파티션이 매달린다.'},
+ {k:'lsblk -f', cols:['NAME','FSTYPE','UUID','MOUNTPOINTS'], newc:['FSTYPE','UUID'], ex:'-f: 파티션별 파일 시스템 유형(FSTYPE)과 UUID 식별자가 함께 나온다. sda1의 FSTYPE이 ext4다.'},
+ {k:'lsblk -p', cols:['NAME','SIZE','TYPE','MOUNTPOINTS'], newc:['NAME'], ex:'-p: 장치 이름이 /dev/sda1 처럼 전체 경로로 나온다. fdisk, mkfs, mount에 이 경로를 그대로 쓴다.'}
+];
+var W = {NAME:14, SIZE:7, TYPE:6, FSTYPE:8, UUID:14, MOUNTPOINTS:0};
+var mode = MODES[0], sel = -1, btns = [];
+var $ = function(id){ return __SR.getElementById(id); };
+function pad(s, n){ s = String(s); while (s.length < n) s += ' '; return s; }
+function cell(d, c){
+  if (c === 'NAME') return d.tree + (mode.k === 'lsblk -p' ? '/dev/' : '') + d.n;
+  return {SIZE:d.size, TYPE:d.type, FSTYPE:d.fs, UUID:d.uuid, MOUNTPOINTS:d.mp}[c];
+}
+function wrap(c, s){ return mode.newc.indexOf(c) >= 0 ? '<span class="newc">' + s + '</span>' : s; }
+function draw(){
+  var w = Object.assign({}, W, mode.k === 'lsblk -p' ? {NAME:16} : {});
+  var html = '<span class="ln">$ ' + mode.k + '</span><span class="ln hd">' + mode.cols.map(function(c){ return wrap(c, pad(c, w[c])); }).join('') + '</span>';
+  DEV.forEach(function(d, i){
+    html += '<span class="ln row' + (i === sel ? ' sel' : '') + '" data-i="' + i + '" role="button" tabindex="0">' + mode.cols.map(function(c){ return wrap(c, pad(cell(d, c), w[c])); }).join('') + '</span>';
+  });
+  $('t').innerHTML = html;
+  $('x').innerHTML = sel >= 0 ? DEV[sel].ex : mode.ex;
+  btns.forEach(function(b){ b.setAttribute('aria-pressed', b.textContent === mode.k ? 'true' : 'false'); });
+}
+function pick(e){
+  var r = e.target.closest('.row'); if (!r) return;
+  if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+  e.preventDefault(); sel = +r.dataset.i; draw();
+}
+$('t').addEventListener('click', pick); $('t').addEventListener('keydown', pick);
+MODES.forEach(function(m){
+  var b = document.createElement('button'); b.type = 'button'; b.textContent = m.k;
+  b.addEventListener('click', function(){ mode = m; sel = -1; draw(); }); $('opts').appendChild(b); btns.push(b);
+});
+draw();
+
+};
+VIZ.dflab = function(__SR){
+
+var GI = 1073741824, MI = 1048576;
+var TOTAL = 25 * GI, USED = 9.8 * GI;
+var DIRS = [
+ {p:'/usr', b:6.1 * GI, err:false},
+ {p:'/var', b:1.9 * GI, err:true},
+ {p:'/home', b:1.2 * GI, err:false},
+ {p:'/etc', b:6.8 * MI, err:true}
+];
+var view = 'df', base = 1024;
+var hideErr = false, $ = function(id){ return __SR.getElementById(id); };
+function human(b, k){
+  var bs = k || base;
+  var u = ['', 'K', 'M', 'G', 'T'], i = 0;
+  while (b >= bs && i < 4) { b /= bs; i++; }
+  var v = b < 10 && i ? Math.ceil(b * 10) / 10 : Math.ceil(b);
+  if (v >= 10 && b < 10) v = Math.ceil(b);
+  return String(v) + u[i];
+}
+function pad(s, n){ s = String(s); while (s.length < n) s = ' ' + s; return s; }
+function draw(){
+  var opt = base === 1024 ? '-h' : '-H', d = DIRS.filter(function(x){ return x.p === view; })[0];
+  var usedPct = USED / TOTAL * 100, hitPct = d ? d.b / TOTAL * 100 : 0;
+  $('bar').innerHTML = (d ? '<div class="seg used hit" style="width:' + Math.max(hitPct, .6) + '%">' + (hitPct > 6 ? d.p : '') + '</div>' : '') +
+    '<div class="seg used" style="width:' + (usedPct - (d ? Math.max(hitPct, .6) : 0)) + '%">' + (d ? '' : 'Used') + '</div><div class="seg free" style="width:' + (100 - usedPct) + '%">Avail</div>';
+  $('lg').textContent = 'Size ' + human(TOTAL);
+  var out;
+  if (!d) {
+    out = '$ df ' + opt + '\nFilesystem   Size  Used Avail Use% Mounted on\n<span class="hi">/dev/sda1   ' + pad(human(TOTAL), 5) + pad(human(USED), 6) + pad(human(TOTAL - USED), 6) + '  ' + Math.round(usedPct) + '% /</span>';
+    $('x').textContent = (base === 1024 ? '-h: 1024 단위(2의 승수)로 계산한다. ' : '-H: 1000 단위(10의 승수)로 계산해 같은 디스크도 숫자가 조금 크게 나온다. ') + 'df는 디스크(파일 시스템) 단위로 전체 용량, 사용량, 남은 공간을 보여 준다. 막대 전체가 df가 보는 범위다.';
+  } else {
+    out = '$ du -sh ' + d.p + (hideErr ? ' 2&gt; /dev/null' : '') + '\n';
+    if (d.err && !hideErr) out += '<span class="er">du: cannot read directory\n  \'' + d.p + '/…\': Permission denied</span>\n';
+    out += '<span class="hi">' + human(d.b, 1024) + '\t' + d.p + '</span>';
+    $('x').textContent = 'du -sh: -s는 합계만(요약), -h는 읽기 쉬운 단위다. du는 지정한 디렉터리 하나가 실제로 차지하는 크기를 보여 준다. 막대에서 파란 부분이 ' + d.p + '이다.' + (d.err ? (hideErr ? ' 권한 에러는 /dev/null로 버려져 결과만 남았다.' : ' 일반 사용자가 읽을 수 없는 하위 폴더가 있어 에러가 섞여 나온다.') : '');
+  }
+  $('o').innerHTML = out;
+  __SR.querySelectorAll('button[data-u]').forEach(function(b){ b.disabled = !!d; });
+  __SR.querySelectorAll('button').forEach(function(b){
+    var on = b.dataset.v === view || b.dataset.u === String(base) || (b.dataset.e && (b.dataset.e === '1') === hideErr);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+function btn(where, text, data, fn){
+  var b = document.createElement('button'); b.type = 'button'; b.textContent = text;
+  Object.keys(data).forEach(function(k){ b.dataset[k] = data[k]; });
+  b.addEventListener('click', function(){ fn(); draw(); }); $(where).appendChild(b);
+}
+btn('cmds', 'df (디스크 전체)', {v:'df'}, function(){ view = 'df'; });
+DIRS.forEach(function(d){ btn('cmds', 'du ' + d.p, {v:d.p}, function(){ view = d.p; }); });
+btn('units', '-h  2의 승수 (1024)', {u:'1024'}, function(){ base = 1024; });
+btn('units', '-H  10의 승수 (1000)', {u:'1000'}, function(){ base = 1000; });
+btn('errs', '그대로 보기', {e:'0'}, function(){ hideErr = false; });
+btn('errs', '2> /dev/null 붙이기', {e:'1'}, function(){ hideErr = true; });
+draw();
+
+};
+VIZ.fdisklab = function(__SR){
+
+var log, inside, pending, written, $ = function(id){ return __SR.getElementById(id); };
+var P = 'Command (m for help): ';
+function out(s){ log.push(s); $('o').innerHTML = log.join('\n'); $('o').scrollTop = 1e6; }
+function lsblk(){ return '$ lsblk\nNAME     SIZE TYPE\nsdb       10G disk' + (written ? '\n<span class="ok">└─sdb1    10G part</span>' : '\n<span class="mut">(파티션 없음)</span>'); }
+function sync(text){
+  $('x').textContent = text;
+  __SR.querySelectorAll('button[data-k]').forEach(function(b){ b.disabled = !inside; });
+  $('start').disabled = inside;
+}
+function start(){
+  inside = true; pending = written;
+  out('$ sudo fdisk /dev/sdb');
+  out(P);
+  sync('fdisk 안으로 들어왔습니다. 아래 키로 명령합니다. 여기서 한 일은 w를 누르기 전까지 디스크에 반영되지 않습니다.');
+}
+var KEYS = {
+ n:function(){
+   if (pending) { out('<span class="mut">(이 예시에서는 파티션을 하나만 만듭니다)</span>'); return '이미 만든 파티션이 있습니다.'; }
+   pending = true; out('Created a new partition 1 of type \'Linux\' and of size 10 GiB.'); return 'n: 새 파티션을 만들었습니다. 아직 화면 속 계획일 뿐, 디스크에는 반영되지 않았습니다.'; },
+ p:function(){
+   out('Device     Size Type\n' + (pending ? '<span class="ok">/dev/sdb1   10G Linux</span>' : '<span class="mut">(파티션 없음)</span>')); return 'p: 현재 파티션 테이블을 출력합니다. 지금까지 계획한 내용을 확인할 때 씁니다.'; },
+ w:function(){
+   written = pending; inside = false;
+   out('The partition table has been altered.'); out(''); out(lsblk());
+   return written ? 'w: 저장하고 종료했습니다. 이제 lsblk에 sdb1이 나타납니다. 다음은 mkfs로 포맷할 차례입니다.' : 'w: 저장하고 종료했지만 만든 파티션이 없어 그대로입니다.'; },
+ q:function(){
+   inside = false; out(''); out(lsblk());
+   return 'q: 저장하지 않고 종료했습니다. n으로 만들었던 파티션은 사라지고, 디스크는 그대로입니다.'; }
+};
+var DESC = {n:'새 파티션', p:'테이블 출력', w:'저장 후 종료', q:'저장 없이 종료'};
+Object.keys(KEYS).forEach(function(k){
+  var b = document.createElement('button'); b.type = 'button'; b.dataset.k = k; b.innerHTML = '<b>' + k + '</b> ' + DESC[k];
+  b.addEventListener('click', function(){
+    log[log.length - 1] += '<span class="c">' + k + '</span>';
+    var t = KEYS[k]();
+    if (inside) out(P);
+    sync(t);
+  });
+  $('btns').appendChild(b);
+});
+var s = document.createElement('button'); s.type = 'button'; s.id = 'start'; s.textContent = 'sudo fdisk /dev/sdb 실행';
+s.addEventListener('click', start); $('btns').appendChild(s);
+var r = document.createElement('button'); r.type = 'button'; r.textContent = '처음부터';
+r.addEventListener('click', function(){ init(); }); $('btns').appendChild(r);
+function init(){ log = []; inside = false; pending = false; written = false; out(lsblk()); sync('새 디스크 sdb에는 아직 파티션이 없습니다. fdisk를 실행해 n → p → w 순서로 눌러 보고, 다시 해서 w 대신 q로 나가 보세요.'); }
+init();
+
+};
+VIZ.fslab = function(__SR){
+
+var FS = [
+ {k:'EXT4', s:'리눅스 대부분의 기본', i:'대부분의 리눅스 배포판에서 기본으로 채택한 파일 시스템. 빠른 속도, 높은 안정성, 대용량 파일을 지원한다. 포맷 명령은 mkfs.ext4.'},
+ {k:'XFS', s:'센트OS, 로키 기본', i:'센트OS, 로키 리눅스 등의 기본 파일 시스템. 대용량 데이터 처리가 빠르고 확장성이 우수한 고성능 저널링 파일 시스템이다. 포맷 명령은 mkfs.xfs.'},
+ {k:'FAT32 / NTFS', s:'윈도우', i:'윈도우 운영체제에서 주로 사용하는 파일 시스템이다.'},
+ {k:'TMPFS', s:'메모리(RAM) 임시', i:'메인 메모리(RAM)를 활용하는 임시 파일 시스템. 읽기·쓰기 속도가 매우 빠르지만 전원이 차단되면 데이터가 지워지는 휘발성이다. 아래 실험으로 확인해 보자.'}
+];
+var $ = function(id){ return __SR.getElementById(id); }, cards = [], disk = [], ram = [], n = 0, lost = 0;
+FS.forEach(function(f, i){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'card';
+  b.innerHTML = '<b>' + f.k + '</b><small>' + f.s + '</small>';
+  b.addEventListener('click', function(){ pick(i); }); $('cards').appendChild(b); cards.push(b);
+});
+function pick(i){ cards.forEach(function(c, j){ c.setAttribute('aria-pressed', i === j ? 'true' : 'false'); }); $('info').textContent = FS[i].i; }
+function files(a){ return a.map(function(x){ return '<span class="f">' + x + '</span>'; }).join(''); }
+function draw(msg){
+  $('d').innerHTML = files(disk) || '<span class="msg">(비어 있음)</span>';
+  $('r').innerHTML = files(ram) || (lost ? '<span class="gone">전원이 꺼져 파일 ' + lost + '개가 사라짐</span>' : '<span class="msg">(비어 있음)</span>');
+  $('m').textContent = msg || '';
+}
+[['파일 저장', function(){ n++; disk.push('memo' + n + '.txt'); ram.push('memo' + n + '.txt'); lost = 0; draw('같은 파일을 양쪽에 저장했습니다.'); }],
+ ['전원 끄고 다시 켜기', function(){ lost = ram.length; ram = []; draw(lost ? '디스크의 파일은 남고, 메모리(tmpfs)의 파일은 사라졌습니다.' : '메모리에는 사라질 파일이 없었습니다. 먼저 파일을 저장해 보세요.'); }],
+ ['처음부터', function(){ disk = []; ram = []; n = 0; lost = 0; draw(''); }]
+].forEach(function(a){
+  var b = document.createElement('button'); b.type = 'button'; b.textContent = a[0]; b.addEventListener('click', a[1]); $('btns').appendChild(b);
+});
+pick(0); draw('');
+
+};/*/SG:VIZJS:l25*/
 /*SG:VIZ*/
   document.querySelectorAll('details.vizbox').forEach(function(d){
     d.addEventListener('toggle', function(){
@@ -3976,6 +4405,6 @@ MEMUI(__SR, UNITS, 'linuxsg-mem-l34');
   });
 })();
 </script>
-<script>(function(){function f(t){if(t)t.scrollIntoView({inline:'center',block:'nearest'});}document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){f(t);});});f(document.querySelector('.tab[aria-selected="true"]'));})();</script>
+<script>(function(){function f(t){if(t)t.scrollIntoView({inline:'center',block:'nearest'});}document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){f(t);});});f(document.querySelector('.tab[aria-selected="true"]'));document.querySelectorAll('details.vizbox[open]').forEach(function(d){if(!d.dataset.init)d.dispatchEvent(new Event('toggle'));});})();</script>
 </body>
 </html>
